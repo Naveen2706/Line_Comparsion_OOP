@@ -42,6 +42,7 @@ public class LineComparison {
         inputCoordinates();
         LineComparison lineCompObj = new LineComparison();
         lineCompObj.lenghtOfLine();
+	System.out.println(strLength1.equals(strLength2));
         }
 
 }
