@@ -1,53 +1,50 @@
-import java.util.Scanner;
+package com.bridgelabz.linecomparison;
 
-  public class LineComparison{
+import com.bridgelabz.utility.Utility;
 
-     public static void main(String[] args){
+public class LineComparison {
+    static int X1;
+    static int X2;
+    static int X3;
+    static int X4;
+    static int Y1;
+    static int Y2;
+    static int Y3;
+    static int Y4;
+    static String strLength1;
+    static String strLength2;
 
-			double x1,x2,y1,y2,x3,y3,x4,y4;
-			
-			Scanner sc = new Scanner(System.in);
-			
-			System.out.println("x1::");
-				x1	= sc.nextDouble();
-			
-			System.out.println("y1::");
-				y1	= sc.nextDouble();
-			
-			System.out.println("x2::");
-        		x2	= sc.nextDouble();
-			
-			System.out.println("y2::");
-				y2	= sc.nextDouble();
-			
-			System.out.println("x3::");
-        		x3	= sc.nextDouble();
-			
-			System.out.println("y3::");
-        		y3	= sc.nextDouble();
-			
-			System.out.println("x4::");
-        		x4	= sc.nextDouble();
-			
-			System.out.println("y4::");
-       		y4 = sc.nextDouble();
-
-		System.out.println("the cordinates of line 1 are::" + "(" + x1 + "," + y1 + ")" + "and" + "(" + x2 + "," + y2 + ")");
-    			double Length_line=Math.sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1))); 
-
-				System.out.println("Length of a line::" + Length_line);
-
-				String str = Double.toString(Length_line);
-
-		System.out.println("the cordinates of line 2 are::" + "(" + x3 + "," + y3 + ")" + "and" + "(" + x4 + "," + y4 + ")");
-				double Length_line1	=	Math.sqrt(((x4 - x3) * (x4 - x3)) + ((y4 - y3) * (y4 - y3)));
-
-				System.out.println("Length of a line::" +	Length_line1);
-
-				String str2 = Double.toString(Length_line1);
-
-		System.out.println(str2.compareTo(str));
-
-	}
-
+static void inputCoordinates(){
+    Utility utility = new Utility();
+    System.out.println("Enter the values of X1 , y1 , X2 , y2 , X3 , y3 , X4 , y4 :: ");
+         X1 = utility.getIntValue();
+         X2 = utility.getIntValue();
+         X3 = utility.getIntValue();
+         X4 = utility.getIntValue();
+         Y1 = utility.getIntValue();
+         Y2 = utility.getIntValue();
+         Y3 = utility.getIntValue();
+         Y4 = utility.getIntValue();
+         System.out.println("the cordinates of line 1 are::" + "(" + X1 + "," + Y1 + ")" + "and" + "(" + X2 + "," + Y2 + ")");
+         System.out.println("the cordinates of line 2 are::" + "(" + X3 + "," + Y3 + ")" + "and" + "(" + X4 + "," + Y4 + ")");
 }
+
+        void lenghtOfLine(){
+        double Length_line1 = Math.sqrt(((X2 - X1) * (X2 - X1)) + ((Y2 - Y1) * (Y2 - Y1)));
+        double Length_line2	= Math.sqrt(((X4 - X3) * (X4 - X3)) + ((Y4 - Y3) * (Y4 - Y3)));
+        strLength1 = Double.toString(Length_line1);
+        strLength2 = Double.toString(Length_line2);
+            System.out.println("Length of a line1 ::" + strLength1);
+            System.out.println("Length of a line2 ::" + strLength2);
+
+        }
+
+    public static void main(String[] args) {
+        inputCoordinates();
+        LineComparison lineCompObj = new LineComparison();
+        lineCompObj.lenghtOfLine();
+        System.out.println(strLength1.equals(strLength2));
+        System.out.println(strLength1.compareTo(strLength2));
+    }
+}
+
